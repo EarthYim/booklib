@@ -2,8 +2,8 @@ server:
   port: 8080
 
 database:
-  host: 
-  port: 5432
+  host: localhost
+  port: 3307
   name: booklib
   user: appusr
   password: password
