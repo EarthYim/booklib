@@ -1,13 +1,15 @@
 package config
 
 import (
+	"os"
+
 	"github.com/spf13/viper"
 )
 
 type Config struct {
-	Http             Http   `mapstructure:"http"`
-	Server           Server `mapstructure:"server"`
-	CovidApiEndpoint string `mapstructure:"covid_api_endpoint"`
+	Http     Http     `mapstructure:"http"`
+	Server   Server   `mapstructure:"server"`
+	Database Database `mapstructure:"database"`
 }
 
 type Http struct {
@@ -16,6 +18,14 @@ type Http struct {
 
 type Server struct {
 	Port string `mapstructure:"port"`
+}
+
+type Database struct {
+	Host     string `mapstructure:"host"`
+	Port     string `mapstructure:"port"`
+	User     string `mapstructure:"user"`
+	Name     string `mapstructure:"name"`
+	Password string `mapstructure:"password"`
 }
 
 func GetConfig() Config {
@@ -30,6 +40,9 @@ func GetConfig() Config {
 	if err := viper.Unmarshal(&config); err != nil {
 		panic(err)
 	}
+
+	config.Database.Host = os.Getenv("MYSQL_HOST")
+	config.Database.Port = os.Getenv("MYSQL_PORT")
 
 	return config
 }

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=appusr
+      - MYSQL_PASSWORD=password
+      - MYSQL_DBNAME=booklib
+      - MYSQL_PORT=3307
+    volumes:
+      - ./config:/app/config 
+
+  db:
+    build:
+      context: ./docker/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: booklib
+      MYSQL_USER: appusr
+      MYSQL_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:

@@ -8,6 +8,8 @@ RUN go mod download
 
 COPY . ./
 
+COPY config/config.yaml /app/config/config.yaml
+
 RUN go build -o booklib
 
 FROM alpine:latest
