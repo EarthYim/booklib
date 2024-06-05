@@ -12,7 +12,7 @@ services:
       - MYSQL_USER=appusr
       - MYSQL_PASSWORD=password
       - MYSQL_DBNAME=booklib
-      - MYSQL_PORT=3307
+      - MYSQL_PORT=3306
     volumes:
       - ./config:/app/config 
 
@@ -20,7 +20,7 @@ services:
     build:
       context: ./docker/mysql
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: booklib
