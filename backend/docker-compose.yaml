@@ -15,6 +15,7 @@ services:
       - MYSQL_PORT=3306
     volumes:
       - ./config:/app/config 
+    restart: always
 
   db:
     build:

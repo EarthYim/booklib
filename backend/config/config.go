@@ -1,6 +1,8 @@
 package config
 
 import (
+	"os"
+
 	"github.com/spf13/viper"
 )
 
@@ -39,8 +41,8 @@ func GetConfig() Config {
 		panic(err)
 	}
 
-	// config.Database.Host = os.Getenv("MYSQL_HOST")
-	// config.Database.Port = os.Getenv("MYSQL_PORT")
+	config.Database.Host = os.Getenv("MYSQL_HOST")
+	config.Database.Port = os.Getenv("MYSQL_PORT")
 
 	return config
 }

@@ -37,3 +37,15 @@ func (db *booklibDb) GetBookById(id int) (model.Book, error) {
 	err := db.Find(&book, id).Error
 	return book, err
 }
+
+// func (db *booklibDb) GetBookByTitle(title string) (model.Book, error) {
+// 	var book model.Book
+// 	err := db.Where("title = ?", title).Find(&book).Error
+// 	return book, err
+// }
+
+// func (db *booklibDb) GetBookByYear(year string) ([]model.Book, error) {
+// 	var books []model.Book
+// 	err := db.Where("year = ?", year).Find(&books).Error
+// 	return books, err
+// }

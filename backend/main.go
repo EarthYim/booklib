@@ -26,6 +26,8 @@ func main() {
 	r.POST("/add-book", app.NewHandler(bookHandler.HandleAdd))
 	r.PUT("/edit-book", app.NewHandler(bookHandler.HandleEdit))
 	r.DELETE("/delete-book", app.NewHandler(bookHandler.HandleDelete))
-	app.Run(r, config.Server.Port)
+	r.GET("/get-books", app.NewHandler(bookHandler.HandleGet))
+	r.GET("/get-book-by-id", app.NewHandler(bookHandler.HandleGetByID))
 
+	app.Run(r, config.Server.Port)
 }

@@ -10,7 +10,7 @@ type booklibService interface {
 	Edit(request.Edit) error
 	Delete(request.Delete) error
 	Get() []response.Get
-	GetByID(id int) response.Get
+	GetByID(id int) (*response.Get, error)
 }
 
 type bookHandler struct {
@@ -66,4 +66,25 @@ func (h *bookHandler) HandleDelete(ctx Context) {
 		return
 	}
 	ctx.JSON("success")
+}
+
+func (h *bookHandler) HandleGet(ctx Context) {
+	resp := h.Get()
+	ctx.JSON(resp)
+}
+
+func (h *bookHandler) HandleGetByID(ctx Context) {
+	var req request.Get
+	err := ctx.ShouldBindJSON(&req)
+	if err != nil {
+		ctx.Error(err)
+		return
+	}
+
+	resp, err := h.GetByID(req.ID)
+	if err != nil {
+		ctx.Error(err)
+	}
+
+	ctx.JSON(resp)
 }
