@@ -14,12 +14,12 @@ func (s *booklibService) GetByID(id int) (*response.Get, error) {
 		return nil, err
 	}
 	resp := &response.Get{
-		ID:    book.ID,
-		Title: book.Title,
-		Autor: book.Autor,
-		Genre: book.Genre,
-		Year:  book.Year,
-		Tag:   book.Tag,
+		ID:     book.ID,
+		Title:  book.Title,
+		Author: book.Author,
+		Genre:  book.Genre,
+		Year:   book.Year,
+		Tag:    book.Tag,
 	}
 	return resp, nil
 }
@@ -34,7 +34,7 @@ func (s *booklibService) GetByID(id int) (*response.Get, error) {
 // 		resp = append(resp, response.Get{
 // 			ID:    book.ID,
 // 			Title: book.Title,
-// 			Autor: book.Autor,
+// 			Author: book.Author,
 // 			Genre: book.Genre,
 // 			Year:  book.Year,
 // 			Tag:   book.Tag,
@@ -53,7 +53,7 @@ func (s *booklibService) GetByID(id int) (*response.Get, error) {
 // 		resp = append(resp, response.Get{
 // 			ID:    book.ID,
 // 			Title: book.Title,
-// 			Autor: book.Autor,
+// 			Author: book.Author,
 // 			Genre: book.Genre,
 // 			Year:  book.Year,
 // 			Tag:   book.Tag,

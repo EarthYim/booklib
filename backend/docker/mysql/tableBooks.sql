@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS `booklib` DEFAULT CHARACTER SET utf8 COLLATE utf8_
 
 USE `booklib`;
 
-CREATE TABLE IF NOT EXISTS `book` (
+CREATE TABLE IF NOT EXISTS `books` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL,

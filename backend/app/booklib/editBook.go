@@ -7,12 +7,12 @@ import (
 
 func (s *booklibService) Edit(req request.Edit) error {
 	book := model.Book{
-		ID:    req.ID,
-		Title: req.Title,
-		Autor: req.Autor,
-		Genre: req.Genre,
-		Year:  req.Year,
-		Tag:   req.Tag,
+		ID:     req.ID,
+		Title:  req.Title,
+		Author: req.Author,
+		Genre:  req.Genre,
+		Year:   req.Year,
+		Tag:    req.Tag,
 	}
 	err := s.EditBook(book)
 	if err != nil {

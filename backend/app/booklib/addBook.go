@@ -8,11 +8,11 @@ import (
 func (s *booklibService) Add(req request.Add) error {
 	//validate request
 	book := model.Book{
-		Title: req.Title,
-		Autor: req.Autor,
-		Genre: req.Genre,
-		Year:  req.Year,
-		Tag:   req.Tag,
+		Title:  req.Title,
+		Author: req.Author,
+		Genre:  req.Genre,
+		Year:   req.Year,
+		Tag:    req.Tag,
 	}
 	//save to db
 	err := s.AddBook(book)

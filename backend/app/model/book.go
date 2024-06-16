@@ -9,10 +9,10 @@ type Book struct {
 	Tag    string
 }
 
-type Tabler interface {
-	TableName() string
-}
+// type Tabler interface {
+// 	TableName() string
+// }
 
-func (Book) TableName() string {
-	return "book"
-}
+// func (Book) TableName() string {
+// 	return "book"
+// }
