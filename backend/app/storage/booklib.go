@@ -19,7 +19,7 @@ func (db *booklibDb) AddBook(book model.Book) error {
 }
 
 func (db *booklibDb) EditBook(book model.Book) error {
-	return db.Save(&book).Error
+	return db.Updates(&book).Error
 }
 
 func (db *booklibDb) DeleteBook(book model.Book) error {

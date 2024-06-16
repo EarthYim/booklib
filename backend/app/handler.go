@@ -9,7 +9,7 @@ type booklibService interface {
 	Add(request.Add) error
 	Edit(request.Edit) error
 	Delete(request.Delete) error
-	Get() []response.Get
+	GetAll() (*[]response.Get, error)
 	GetByID(id int) (*response.Get, error)
 }
 
@@ -69,7 +69,11 @@ func (h *bookHandler) HandleDelete(ctx Context) {
 }
 
 func (h *bookHandler) HandleGet(ctx Context) {
-	resp := h.Get()
+	resp, err := h.GetAll()
+	if err != nil {
+		ctx.Error(err)
+		return
+	}
 	ctx.JSON(resp)
 }
 
